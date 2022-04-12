@@ -1,2 +1,7 @@
-# Skylan
-Spam machine for windows
+# Help
+
+**PIP LIST**
+* kivy
+* ....
+
+**
