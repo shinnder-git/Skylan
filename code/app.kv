@@ -1,0 +1,149 @@
+<HelloScreen>:
+	id:  hello
+	MDCard:
+		size_hint: None, None
+		size: 300, 400
+		pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+		elevation: 50
+		spacing: 10
+		padding: 25
+		border_radius: 20
+		radius: [15]
+		orientation: 'vertical'
+
+		Image:
+			source: 'img/icon.jpg'
+			pos_hint: {"center_x": 0.5, "center_y": 0.5}
+			width: 500
+			radius: 15
+
+		MDBoxLayout:
+			pos_hint: {"center_x": 0.5, "center_y": 0.8}
+			orientation: 'vertical'
+			cols: 2
+
+			MDLabel:
+				id: name
+				text: "SKYLAN"
+				font_size: 50
+				halign: 'center'
+				height: self.texture_size[1]
+				size_hint_y: None
+				padding_y: 1
+
+			MDLabel:
+				id: version
+				text: "Запускается..."
+				font_size: 20
+				halign: 'center'
+				size_hint_y: None
+				padding_y: 1
+
+<MainScreen>:
+	id: main
+	MDCard:
+		id: "card"
+		size_hint: None, None
+		size: 500, 300
+		pos_hint: {"center_x": 0.5, "center_y": 0.3}
+		elevation: 50
+		spacing: 10
+		orientation: 'vertical'
+		border_radius: 20
+		radius: [15]
+		padding: 25
+
+		FloatLayout:
+			MDFlatButton:
+				text: "Спам"
+				pos_hint: {'center_x': 0.2, 'center_y': 0.3}
+				on_release: app.spam()
+
+			MDFlatButton:
+				text: "Оскорбления"
+				pos_hint: {'center_x': 0.5, 'center_y': 0.3}
+				on_release: app.random_fuck()
+
+			MDFlatButton:
+				text: "1000-7"
+				pos_hint: {'center_x': 0.8, 'center_y': 0.3}
+				on_release: app.ghoul()
+
+			MDTextField:
+				id: interval
+				input_filter: "float"
+				text: "1"
+				pos_hint: {'center_x': 0.3, 'center_y': 0.85}
+				hint_text: "Интервал"
+				multiline: False
+				icon: "timeline"
+				size_hint_x: 0.5
+
+			MDTextField:
+				id: amount
+				icon: "shoe-print"
+				input_filter: "float"
+				text: "10"
+				pos_hint: {'center_x': 0.3, 'center_y': 0.68}
+				hint_text: "Кол-во"
+				multiline: False
+				size_hint_x: 0.5
+
+			MDLabel:
+				text: "Уведомления"
+				font_size: 15
+				halign: 'center'
+				pos_hint: {'center_x': .75, 'center_y': 0.85}
+				padding_y: 1
+
+			MDCheckbox:
+				active: True
+				size_hint: None, None
+				size: "48dp", "48dp"
+				pos_hint: {'center_x': .9, 'center_y': 0.85}
+				on_active: app.notifications_check(*args)
+
+			MDLabel:
+				text: 'Сменить тему'
+				font_size: 15
+				halign: 'center'
+				pos_hint: {'center_x': .75, 'center_y': 0.68}
+				padding_y: 1
+
+			MDIconButton:
+				id: theme
+				icon: "theme-light-dark"
+				size_hint: None, None
+				pos_hint: {'center_x': .9, 'center_y': 0.68}
+				on_release: app.themes_check()
+
+			MDIconButton:
+				id: donate
+				icon: "cash"
+				size_hint: None, None
+				pos_hint: {'center_x': .7, 'center_y': 0.05}
+				on_release: app.donate()
+
+			MDIconButton:
+				id: github
+				icon: "github"
+				size_hint: None, None
+				pos_hint: {'center_x': .8, 'center_y': 0.05}
+				on_release: app.github()
+
+			MDIconButton:
+				id: telegram
+				icon: "telegram"
+				size_hint: None, None
+				pos_hint: {'center_x': .9, 'center_y': 0.05}
+				on_release: app.telegram()
+
+
+	MDTextField:
+		id: spam_text
+		size_hint_y: 0.3
+		hint_text: "Пиши сюда..."
+		max_height: 500
+		multiline: True
+		pos_hint: {"center_x": 0.50, "center_y": 0.8}
+		text: "Сюда вы сможете написать любой текст, который хотите заспамить в чате..."
